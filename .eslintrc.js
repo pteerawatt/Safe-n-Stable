@@ -33,5 +33,6 @@ module.exports = {
     "react/button-has-type": 0,
     "linebreak-style": 0,
     "camelcase": 0,
+    "arrow-body-style": 0,
   },
 };
