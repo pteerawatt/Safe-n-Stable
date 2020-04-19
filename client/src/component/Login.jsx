@@ -15,6 +15,7 @@ class Login extends React.Component {
         <input type="text" id="username" name="username" required></input>
         <label htmlFor="password">Password:</label>
         <input type="text" id="password" name="password" required></input>
+        <button>Login</button>
       </form>
     );
   }

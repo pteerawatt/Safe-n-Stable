@@ -30,5 +30,6 @@ module.exports = {
     "react/no-unknown-property": 0,
     "react/self-closing-comp": 0,
     "jsx-a11y/label-has-associated-control": 0,
+    "react/button-has-type": 0,
   },
 };
