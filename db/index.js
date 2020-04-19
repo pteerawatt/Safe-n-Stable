@@ -22,7 +22,7 @@ userSchema.index({ username: 1 }, { unique: true });
 
 const User = mongoose.model('User', userSchema);
 
-
+// create a user
 const saveUsr = (uName, pass, callback) => {
   const newUsr = new User({
     username: uName,
@@ -33,4 +33,12 @@ const saveUsr = (uName, pass, callback) => {
   });
 };
 
-module.exports = { saveUsr };
+// login
+const findUsr = (uName, callback) => {
+  User.findOne({ username: uName }).exec((err, result) => callback(result));
+};
+
+module.exports = {
+  saveUsr,
+  findUsr,
+};
