@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pteerawatt/Safe-n-Stable#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "node": "^13.13.0",
     "nodemon": "^2.0.3",
