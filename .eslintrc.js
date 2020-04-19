@@ -22,6 +22,13 @@ module.exports = {
     'react',
   ],
   rules: {
-    "no-console": 0
+    "no-console": 0,
+    "indent": 0,
+    "no-tabs": 0,
+    "react/jsx-indent": 0,
+    "import/extensions": 0,
+    "react/no-unknown-property": 0,
+    "react/self-closing-comp": 0,
+    "jsx-a11y/label-has-associated-control": 0,
   },
 };
