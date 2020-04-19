@@ -31,5 +31,7 @@ module.exports = {
     "react/self-closing-comp": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "react/button-has-type": 0,
+    "linebreak-style": 0,
+    "camelcase": 0,
   },
 };
