@@ -1,21 +1,21 @@
 const bcrypt = require('bcryptjs');
-
-const users = [];
+const model = require('./model.js');
 
 const post_user = async (req, res) => {
-  try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.query.password, salt);
+  const salt = await bcrypt.genSalt();
+  const hashedPassword = await bcrypt.hash(req.query.password, salt);
 
-    const user = { 
-      username: req.query.username,
-      password: hashedPassword,
-    };
-    users.push(user);
-    res.status(201).send(users);
-  } catch {
-    res.status(500).send();
-  }
+  
+  const username = req.query.username;
+  const password = hashedPassword;
+  
+  model.post_user(username, password, (err, results) => {
+    if(err) {
+      res.status(500).send('Username already taken')
+    } else {
+    res.status(201).send(results);
+    }
+  });
 }
 
 const post_login = async (req, res) => {

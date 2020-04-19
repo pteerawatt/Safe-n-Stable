@@ -8,11 +8,6 @@ const port = 1500;
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 
-
-// app.get('/users', (req, res) => {
-//   res.json(users);
-// });
-
 app.post('/users', (req, res) => {
   controller.post_user(req, res);
 });
