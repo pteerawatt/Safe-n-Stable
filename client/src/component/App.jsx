@@ -5,7 +5,16 @@ import Stable from './Stable.jsx';
 
 const App = () => {
 	const [login, setLogin] = useState(false);
-	const [currUser, setUser] = useState('');
+	const [currUser, setUser] = useState({
+		username: '',
+		stable: [
+			{
+				name: 'Add a mount to your stable!',
+				description: '',
+				picture: 'https://safe-n-stable.s3-us-west-1.amazonaws.com/1104261.svg',
+			},
+		],
+	});
 
 	// conditionally render stable page
 	const updateLogin = () => {

@@ -4,7 +4,7 @@ const Stable = ({ currUser }) => {
   return (
     <div>
       <div>
-        {`Welcome to your stable ${currUser}!`}
+        {`Welcome to your stable ${currUser.username}!`}
       </div>
     </div>
   );

@@ -36,5 +36,7 @@ module.exports = {
     "arrow-body-style": 0,
     "no-alert": 0,
     "react/prop-types": 0,
+    "no-useless-return": 0,
+    "consistent-return": 0,
   },
 };

@@ -5,6 +5,14 @@ const Login = ({ updateLogin, updateUser }) => {
   const [username, setName] = useState('');
   const [password, setPass] = useState('');
 
+  // populates the user info on main app
+  const getUser = (uName) => {
+    axios.get('/users', { params: { username: uName } })
+    .then((results) => {
+      updateUser(results.data);
+    });
+  };
+
   // on submit will reach out to DB and authenticate
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,10 +26,11 @@ const Login = ({ updateLogin, updateUser }) => {
         alert(result.data);
         if (result.data === 'Your logged in!') {
           updateLogin();
-          updateUser(username);
+          getUser(username);
          }
       });
   };
+
 
   return (
     <form onSubmit={handleSubmit}>
