@@ -2,7 +2,6 @@ const db = require('../db/index.js');
 
 // create user
 const post_user = (uName, pass, callback) => {
-  // console.log(uName, pass);
   db.saveUsr(uName, pass, callback);
 };
 

@@ -11,9 +11,10 @@ const post_user = async (req, res) => {
   
   model.post_user(username, password, (err, results) => {
     if(err) {
-      res.status(500).send('Username already taken')
+      res.send('Username already taken')
     } else {
-    res.status(201).send(results);
+    res.send(`Successfully created an accout with username: ${results.username}`);
+    console.log(results)
     }
   });
 }
@@ -24,7 +25,7 @@ const post_login = (req, res) => {
   const password = req.body.data.password;
   model.post_login(username, async (user) => {
   if (user === null) {
-    return res.status(400).send('Cannot find user')
+    return res.send('Cannot find user')
   }
   try {
     if (await bcrypt.compare(password, user.password)) {
