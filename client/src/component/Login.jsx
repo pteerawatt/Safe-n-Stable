@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ updateLogin, updateUser }) => {
   const [username, setName] = useState('');
   const [password, setPass] = useState('');
 
+  // on submit will reach out to DB and authenticate
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('/users/login', {
@@ -13,7 +14,13 @@ const Login = () => {
         password,
       },
     })
-      .then((result) => { alert(result.data); });
+      .then((result) => {
+        alert(result.data);
+        if (result.data === 'Your logged in!') {
+          updateLogin();
+          updateUser(username);
+         }
+      });
   };
 
   return (

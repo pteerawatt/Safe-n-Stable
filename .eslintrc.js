@@ -35,5 +35,6 @@ module.exports = {
     "camelcase": 0,
     "arrow-body-style": 0,
     "no-alert": 0,
+    "react/prop-types": 0,
   },
 };
