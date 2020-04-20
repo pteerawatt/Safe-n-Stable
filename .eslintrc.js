@@ -34,5 +34,6 @@ module.exports = {
     "linebreak-style": 0,
     "camelcase": 0,
     "arrow-body-style": 0,
+    "no-alert": 0,
   },
 };

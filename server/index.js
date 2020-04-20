@@ -14,7 +14,7 @@ app.post('/users', (req, res) => {
 });
 
 // login
-app.post('/users/login', async (req, res) => {
+app.post('/users/login', (req, res) => {
   controller.post_login(req, res);
 });
 

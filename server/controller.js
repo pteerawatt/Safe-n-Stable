@@ -4,9 +4,9 @@ const model = require('./model.js');
 // create a user
 const post_user = async (req, res) => {
   const salt = await bcrypt.genSalt();
-  const hashedPassword = await bcrypt.hash(req.query.password, salt);
+  const hashedPassword = await bcrypt.hash(req.body.data.password, salt);
 
-  const username = req.query.username;
+  const username = req.body.data.username;
   const password = hashedPassword;
   
   model.post_user(username, password, (err, results) => {
@@ -20,8 +20,8 @@ const post_user = async (req, res) => {
 
 // login
 const post_login = (req, res) => {
-  const username = req.query.username;
-  const password = req.query.password;
+  const username = req.body.data.username;
+  const password = req.body.data.password;
   model.post_login(username, async (user) => {
   if (user === null) {
     return res.status(400).send('Cannot find user')
