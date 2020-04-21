@@ -36,7 +36,6 @@ app.post('/token', (req, res) => {
 
 // get an array of all mounts
 app.get('/mounts', (req, res) => {
-  console.log(req.query);
   const { token } = req.query;
   const options = {
     url: 'https://us.api.blizzard.com/data/wow/mount/index?namespace=static-us&locale=en_US',
@@ -55,6 +54,45 @@ app.get('/mounts', (req, res) => {
   request(options, callback);
 });
 
+// get info on a specific mount
+app.get('/mountinfo', (req, res) => {
+  const { token, id } = req.query;
+  const options = {
+    url: `https://us.api.blizzard.com/data/wow/mount/${id}?namespace=static-us&locale=en_US`,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  function callback(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      const info = JSON.parse(body);
+      res.send(info);
+    }
+  }
+
+  request(options, callback);
+});
+
+// get picture of a creature
+app.get('/creature', (req, res) => {
+  const { token, id } = req.query;
+  const options = {
+    url: `https://us.api.blizzard.com/data/wow/media/creature-display/${id}?namespace=static-us&locale=en_US`,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  function callback(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      const info = JSON.parse(body);
+      res.send(info);
+    }
+  }
+
+  request(options, callback);
+});
 
 // create a user
 app.post('/users', (req, res) => {

@@ -19,7 +19,10 @@ const App = () => {
 		],
 	});
 	const [mountName, setMountName] = useState('');
+	const [mountDes, setMountDes] = useState('');
+	const [mountPic, setMountPic] = useState('');
 	const [mountId, setMountId] = useState(0);
+	const [creatureId, setCreatureId] = useState(0);
 
 	// get the token to do API request to blizzard
 	useEffect(() => {
@@ -38,9 +41,9 @@ const App = () => {
 		setUser(usr);
 	};
 
-	// get mount by name and add
+	// get mount by name and add to DB
 	const AddMountByName = (name) => {
-		// id
+		// query for all mount and filter by id
 		axios.get('/mounts', {
 			params: {
 				token,
@@ -51,13 +54,24 @@ const App = () => {
 			setMountName(target[0].name);
 			setMountId(target[0].id);
 		}).then(() => {
+			// get info on a mount
 			axios.get('/mountinfo', {
 				params: {
 					token,
 					id: mountId,
 				},
-			}).then(() => {
-
+			}).then((result) => {
+				setMountDes(result.data.description);
+				setCreatureId(result.data.creature_displays[0].id);
+			});
+		}).then(() => {
+			axios.get('/creature', {
+				params: {
+					token,
+					id: creatureId,
+				},
+			}).then((result) => {
+				setMountPic(result.data.assets[0].value);
 			});
 		});
 	};
