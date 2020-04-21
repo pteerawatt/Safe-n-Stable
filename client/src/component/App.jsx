@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Login from './Login.jsx';
 import CreateAcc from './CreateAcc.jsx';
 import Stable from './Stable.jsx';
 
 const App = () => {
+	const [token, setToken] = useState('');
 	const [login, setLogin] = useState(false);
 	const [currUser, setUser] = useState({
 		username: '',
@@ -18,6 +19,13 @@ const App = () => {
 		],
 	});
 
+	// get the token to do API request to blizzard
+	useEffect(() => {
+		axios.post('/token').then((result) => {
+			setToken(result.data);
+		});
+	});
+
 	// conditionally render stable page
 	const updateLogin = () => {
 		setLogin(true);
@@ -29,13 +37,20 @@ const App = () => {
 	};
 
 	// get mount by name and add
-	const AddMountByName = (mountName) => {
-		console.log('here' + mountName);
-		// axios.get('/mounts', {
-		// 	params: {
-		// 		name: mountName,
-		// 	},
-		// });
+	const AddMountByName = (name) => {
+		const mount = {
+			name: '',
+			description: '',
+			picture: '',
+		};
+		// id
+		axios.get('/mounts', {
+			params: {
+				token,
+			},
+		}).then((result) => {
+			console.log(result);
+		})
 	};
 
 	// if not logged in, wil display login page
