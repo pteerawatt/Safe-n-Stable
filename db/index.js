@@ -78,11 +78,11 @@ const addMount = (uName, mName, mDescription, mPic, callback) => {
       if (err) {
         console.log(err);
       } else {
-        User.findOne({ username: result.username }).exec((err, result) => {
-          if (err) {
+        User.findOne({ username: result.username }).exec((e, r) => {
+          if (e) {
             console.log(err);
           } else {
-            callback(result);
+            callback(r);
           }
         });
       }
