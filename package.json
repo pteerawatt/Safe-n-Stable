@@ -28,7 +28,8 @@
     "nodemon": "^2.0.3",
     "path": "^0.12.7",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
