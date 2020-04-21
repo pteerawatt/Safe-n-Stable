@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Login from './Login.jsx';
 import CreateAcc from './CreateAcc.jsx';
 import Stable from './Stable.jsx';
-import axios from 'axios';
 
 const App = () => {
 	const [login, setLogin] = useState(false);
@@ -28,9 +28,16 @@ const App = () => {
 		setUser(usr);
 	};
 
+	// get mount by name and add
 	const AddMountByName = (mountName) => {
-		
+		console.log('here' + mountName);
+		// axios.get('/mounts', {
+		// 	params: {
+		// 		name: mountName,
+		// 	},
+		// });
 	};
+
 	// if not logged in, wil display login page
 	if (!login) {
 		return (
@@ -50,7 +57,7 @@ const App = () => {
 	// if logged in, will display Stable page
 	return (
 		<div>
-			<Stable currUser={currUser} />
+			<Stable currUser={currUser} AddMountByName={AddMountByName} />
 		</div>
 	);
 };
