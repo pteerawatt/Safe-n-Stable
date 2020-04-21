@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import CurrentMount from './CurrentMount.jsx';
 import MountList from './MountList.jsx';
+import AddMount from './AddMount.jsx';
 
 const Stable = ({ currUser }) => {
-
   // select mount to be in main display
   const [display, setDisplay] = useState(0);
 
@@ -12,12 +12,13 @@ const Stable = ({ currUser }) => {
 
   return (
     <div>
-      <div>
+      <h1>
         {`Welcome to your stable ${currUser.username}!`}
-      </div>
+      </h1>
+      <AddMount />
       <CurrentMount mount={mainDisplay} />
       {allMounts.map((mount) => {
-        return <MountList mount={mount} />;
+        return <MountList mount={mount} key={mount._id} />;
       })}
     </div>
   );

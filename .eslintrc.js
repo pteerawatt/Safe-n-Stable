@@ -38,5 +38,6 @@ module.exports = {
     "react/prop-types": 0,
     "no-useless-return": 0,
     "consistent-return": 0,
+    "no-underscore-dangle": 0,
   },
 };
