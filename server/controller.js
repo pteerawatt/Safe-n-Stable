@@ -53,8 +53,22 @@ const get_user = (req, res) => {
   });
 };
 
+// add mount to a stable
+const add_mount = (req, res) => {
+  const {
+    username,
+    name,
+    description,
+    picture,
+  } = req.body.data;
+  model.add_mount(username, name, description, picture, (results) => {
+    res.send(results);
+  });
+};
+
 module.exports = {
   post_user,
   post_login,
   get_user,
+  add_mount,
 };

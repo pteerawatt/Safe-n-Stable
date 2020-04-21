@@ -63,8 +63,7 @@ const App = () => {
 			}).then((result) => {
 				setMountDes(result.data.description);
 				setCreatureId(result.data.creature_displays[0].id);
-			});
-		}).then(() => {
+			}).then(() => {
 			axios.get('/creature', {
 				params: {
 					token,
@@ -72,7 +71,20 @@ const App = () => {
 				},
 			}).then((result) => {
 				setMountPic(result.data.assets[0].value);
+			}).then(() => {
+				axios.post('/users/mounts', {
+					data: {
+						username: currUser.username,
+						name: mountName,
+						description: mountDes,
+						picture: mountPic,
+					},
+				}).then((result) => {
+					alert(`Successfully added ${mountName}`);
+					setUser(result.data);
+				});
 			});
+		});
 		});
 	};
 

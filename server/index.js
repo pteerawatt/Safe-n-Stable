@@ -109,4 +109,9 @@ app.get('/users', (req, res) => {
  controller.get_user(req, res);
 });
 
+// add mount to stable
+app.post('/users/mounts', (req, res) => {
+  controller.add_mount(req, res);
+});
+
 app.listen(port, () => console.log(`Mounting on port: ${port}`));
