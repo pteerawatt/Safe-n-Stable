@@ -14,8 +14,13 @@ app.post('/users', (req, res) => {
 });
 
 // login
-app.post('/users/login', async (req, res) => {
+app.post('/users/login', (req, res) => {
   controller.post_login(req, res);
+});
+
+// get user
+app.get('/users', (req, res) => {
+ controller.get_user(req, res);
 });
 
 app.listen(port, () => console.log(`Mounting on port: ${port}`));

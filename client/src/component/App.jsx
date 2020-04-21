@@ -1,20 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Login from './Login.jsx';
+import CreateAcc from './CreateAcc.jsx';
+import Stable from './Stable.jsx';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+const App = () => {
+	const [login, setLogin] = useState(false);
+	const [currUser, setUser] = useState({
+		username: '',
+		stable: [
+			{
+				_id: 0,
+				name: 'Add a mount to your stable!',
+				description: '',
+				picture: 'https://safe-n-stable.s3-us-west-1.amazonaws.com/1104261.svg',
+			},
+		],
+	});
 
-	render() {
+	// conditionally render stable page
+	const updateLogin = () => {
+		setLogin(true);
+	};
+
+	// update the current user on successful login
+	const updateUser = (usr) => {
+		setUser(usr);
+	};
+
+	// get mount by name and add
+	const AddMountByName = (mountName) => {
+		console.log('here' + mountName);
+		// axios.get('/mounts', {
+		// 	params: {
+		// 		name: mountName,
+		// 	},
+		// });
+	};
+
+	// if not logged in, wil display login page
+	if (!login) {
 		return (
-			<div>
-				<Login />
-			</div>
-		);
+					<div>
+						<h1>Welcome to Safe-n-Stable</h1>
+						<br></br>
+						<h2>Login Here</h2>
+						<Login updateLogin={updateLogin} updateUser={updateUser} />
+						<br></br>
+						<br></br>
+						<br></br>
+						<h3>{'Don\'t have an account yet? Create one here!'}</h3>
+						<CreateAcc />
+					</div>
+				);
 	}
-}
+	// if logged in, will display Stable page
+	return (
+		<div>
+			<Stable currUser={currUser} AddMountByName={AddMountByName} />
+		</div>
+	);
+};
 
 export default App;

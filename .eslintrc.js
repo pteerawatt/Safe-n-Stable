@@ -33,5 +33,11 @@ module.exports = {
     "react/button-has-type": 0,
     "linebreak-style": 0,
     "camelcase": 0,
+    "arrow-body-style": 0,
+    "no-alert": 0,
+    "react/prop-types": 0,
+    "no-useless-return": 0,
+    "consistent-return": 0,
+    "no-underscore-dangle": 0,
   },
 };

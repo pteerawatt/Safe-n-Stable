@@ -4,41 +4,57 @@ const model = require('./model.js');
 // create a user
 const post_user = async (req, res) => {
   const salt = await bcrypt.genSalt();
-  const hashedPassword = await bcrypt.hash(req.query.password, salt);
+  const hashedPassword = await bcrypt.hash(req.body.data.password, salt);
 
-  const username = req.query.username;
+  const { username } = req.body.data;
   const password = hashedPassword;
-  
+
   model.post_user(username, password, (err, results) => {
-    if(err) {
-      res.status(500).send('Username already taken')
+    if (err) {
+      res.send('Username already taken');
     } else {
-    res.status(201).send(results);
+    res.send(`Successfully created an accout with username: ${results.username}`);
     }
   });
-}
+};
 
 // login
 const post_login = (req, res) => {
-  const username = req.query.username;
-  const password = req.query.password;
-  model.post_login(username, async (user) => {
+  const { username, password } = req.body.data;
+
+  model.post_login(username, async (err, user) => {
+  if (err) {
+    console.log(err);
+  }
   if (user === null) {
-    return res.status(400).send('Cannot find user')
+    return res.send('Cannot find user');
   }
   try {
     if (await bcrypt.compare(password, user.password)) {
-      res.send('Your logged in!')
+      res.send('Your logged in!');
     } else {
-      res.send('Incorrect password')
+      res.send('Incorrect password');
     }
-  } catch {
-      res.status(500).send()
+  } catch (error) {
+      res.send(error);
     }
   });
-}
+};
 
-module.exports = { 
+// get user data
+const get_user = (req, res) => {
+  const { username } = req.query;
+  model.get_user(username, (err, user) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(user);
+    }
+  });
+};
+
+module.exports = {
   post_user,
   post_login,
-}
+  get_user,
+};
