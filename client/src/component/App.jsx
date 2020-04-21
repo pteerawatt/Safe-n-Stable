@@ -18,6 +18,8 @@ const App = () => {
 			},
 		],
 	});
+	const [mountName, setMountName] = useState('');
+	const [mountId, setMountId] = useState(0);
 
 	// get the token to do API request to blizzard
 	useEffect(() => {
@@ -38,19 +40,26 @@ const App = () => {
 
 	// get mount by name and add
 	const AddMountByName = (name) => {
-		const mount = {
-			name: '',
-			description: '',
-			picture: '',
-		};
 		// id
 		axios.get('/mounts', {
 			params: {
 				token,
 			},
 		}).then((result) => {
-			console.log(result);
-		})
+			const allMount = result.data.mounts;
+			const target = allMount.filter((targetMount) => targetMount.name === name);
+			setMountName(target[0].name);
+			setMountId(target[0].id);
+		}).then(() => {
+			axios.get('/mountinfo', {
+				params: {
+					token,
+					id: mountId,
+				},
+			}).then(() => {
+
+			});
+		});
 	};
 
 	// if not logged in, wil display login page
