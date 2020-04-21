@@ -36,7 +36,7 @@ const App = () => {
 						<br></br>
 						<br></br>
 						<br></br>
-						<h3>Don't have an account yet? Create one here!</h3>
+						<h3>{'Don\'t have an account yet? Create one here!'}</h3>
 						<CreateAcc />
 					</div>
 				);
