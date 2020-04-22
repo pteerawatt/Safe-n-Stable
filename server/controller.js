@@ -54,13 +54,13 @@ const get_user = (req, res) => {
 };
 
 // add mount to a stable
-const add_mount = (req, res) => {
+const add_mount = (Mount, res) => {
   const {
     username,
     name,
     description,
     picture,
-  } = req.body.data;
+  } = Mount;
   model.add_mount(username, name, description, picture, (results) => {
     res.send(results);
   });
