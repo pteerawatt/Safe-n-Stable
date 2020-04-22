@@ -33,6 +33,7 @@ const saveUsr = (uName, pass, callback) => {
     username: uName,
     password: pass,
     stable: [
+      // Every user comes with a free brown horse
       {
         name: 'Brown Horse',
         description: 'A favorite among Stormwind\'s guards thanks to its patience and stamina.',
@@ -67,8 +68,30 @@ const getUsr = (uName, callback) => {
   });
 };
 
+// add mount to a stable
+const addMount = (uName, mName, mDescription, mPic, callback) => {
+  const newMount = { name: mName, description: mDescription, picture: mPic };
+  User.findOneAndUpdate(
+    { username: uName },
+    { $push: { stable: newMount } },
+    ).exec((err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        User.findOne({ username: result.username }).exec((e, r) => {
+          if (e) {
+            console.log(err);
+          } else {
+            callback(r);
+          }
+        });
+      }
+    });
+};
+
 module.exports = {
   saveUsr,
   findUsr,
   getUsr,
+  addMount,
 };

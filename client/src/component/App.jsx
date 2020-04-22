@@ -36,21 +36,16 @@ const App = () => {
 		setUser(usr);
 	};
 
-	// get mount by name and add
+	// get mount by name and add to DB
 	const AddMountByName = (name) => {
-		const mount = {
-			name: '',
-			description: '',
-			picture: '',
-		};
-		// id
-		axios.get('/mounts', {
+		axios.get('/mounts/add', {
 			params: {
-				token,
+				username: currUser.username,
+				name,
 			},
 		}).then((result) => {
-			console.log(result);
-		})
+			setUser(result.data);
+		});
 	};
 
 	// if not logged in, wil display login page

@@ -15,8 +15,14 @@ const get_user = (uName, callback) => {
   db.getUsr(uName, callback);
 };
 
+// add mount to a stable
+const add_mount = (username, name, description, picture, callback) => {
+  db.addMount(username, name, description, picture, callback);
+};
+
 module.exports = {
   post_user,
   post_login,
   get_user,
+  add_mount,
 };
