@@ -5,11 +5,11 @@ const ArrayOfMounts = ({ mount }) => {
   return (
     <div>
       <div>
-        {name}
+        {name || ''}
       </div>
-      <img src={picture} alt="mount"></img>
+      <img src={picture || ''} alt="mount"></img>
       <div>
-        {description}
+        {description || ''}
       </div>
     </div>
   );

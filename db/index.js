@@ -33,22 +33,12 @@ const saveUsr = (uName, pass, callback) => {
     username: uName,
     password: pass,
     stable: [
-      // Every user comes with a free brown horse
-      {
-        name: 'Brown Horse',
-        description: 'A favorite among Stormwind\'s guards thanks to its patience and stamina.',
-        picture: 'https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-2404.jpg',
-      },
-      {
-        name: 'Gray Wolf',
-        description: 'This breed of wolf prefers hunting in the fog, relying on its smoky hide to camouflage it from unsuspecting prey.',
-        picture: 'https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-2320.jpg',
-      },
-      {
-        name: 'White Stallion',
-        description: 'The powerful and unyielding white stallion features heavily in the myths of ancient human tribes.',
-        picture: 'https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-2410.jpg',
-      },
+      // // Every user comes with a free brown horse
+      // {
+      //   name: 'Brown Horse',
+      //   description: 'A favorite among Stormwind\'s guards thanks to its patience and stamina.',
+      //   picture: 'https://render-us.worldofwarcraft.com/npcs/zoom/creature-display-2404.jpg',
+      // },
     ],
   });
   newUsr.save((err, results) => {
