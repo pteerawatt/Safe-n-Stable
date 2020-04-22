@@ -94,10 +94,9 @@ app.get('/creature', (req, res) => {
   request(options, callback);
 });
 
-// get all
-// takes current username and mount name
-app.get('/all', (req, res) => {
-  // console.log(req.query);
+// takes current username and mount name to add to DB
+app.get('/mounts/add', (req, res) => {
+  console.log(req.query);
   const Mount = {
     username: req.query.username,
     name: '',
