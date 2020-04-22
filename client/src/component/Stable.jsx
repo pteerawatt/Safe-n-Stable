@@ -8,7 +8,7 @@ const Stable = ({ currUser, AddMountByName }) => {
   const [display, setDisplay] = useState(0);
 
   const allMounts = currUser.stable;
-  const mainDisplay = allMounts[display];
+  const mainDisplay = allMounts[display] || 'noMount';
 
   return (
     <div>

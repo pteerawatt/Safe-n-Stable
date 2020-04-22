@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Login from './Login.jsx';
 import CreateAcc from './CreateAcc.jsx';
@@ -17,13 +17,6 @@ const App = () => {
 				picture: 'https://safe-n-stable.s3-us-west-1.amazonaws.com/1104261.svg',
 			},
 		],
-	});
-
-	// get the token to do API request to blizzard
-	useEffect(() => {
-		axios.post('/token').then((result) => {
-			setToken(result.data);
-		});
 	});
 
 	// conditionally render stable page
