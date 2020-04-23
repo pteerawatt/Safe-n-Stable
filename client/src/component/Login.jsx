@@ -7,7 +7,7 @@ const Login = ({ updateLogin, updateUser }) => {
 
   // populates the user info on main app
   const getUser = (uName) => {
-    axios.get('/users', { params: { username: uName } })
+    axios.get('/api/users', { params: { username: uName } })
     .then((results) => {
       updateUser(results.data);
     });
@@ -16,7 +16,7 @@ const Login = ({ updateLogin, updateUser }) => {
   // on submit will reach out to DB and authenticate
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('/users/login', {
+    axios.post('/api/users/login', {
       data: {
         username,
         password,

@@ -7,7 +7,7 @@ const CreateAcc = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('/users', {
+    axios.post('/api/users', {
       data: {
         username,
         password,

@@ -27,6 +27,40 @@ userSchema.index({ username: 1 }, { unique: true });
 
 const User = mongoose.model('User', userSchema);
 
+// add mount to a stable
+const addMount = (uName, mName, mDescription, mPic, callback) => {
+  const newMount = { name: mName, description: mDescription, picture: mPic };
+  User.findOneAndUpdate(
+    { username: uName },
+    { $push: { stable: newMount } },
+    ).exec((err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        User.findOne({ username: result.username }).exec((e, r) => {
+          if (e) {
+            console.log(err);
+          } else {
+            callback(r);
+          }
+        });
+      }
+    });
+};
+
+// delete mount
+const deleteMount = (id, username, callback) => {
+  User.updateOne({ username },
+    { $pull: { stable: { _id: id } } },
+    (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        User.findOne({ username }).exec((error, result) => callback(error, result));
+      }
+    });
+};
+
 // create a user
 const saveUsr = (uName, pass, callback) => {
   const newUsr = new User({
@@ -58,30 +92,11 @@ const getUsr = (uName, callback) => {
   });
 };
 
-// add mount to a stable
-const addMount = (uName, mName, mDescription, mPic, callback) => {
-  const newMount = { name: mName, description: mDescription, picture: mPic };
-  User.findOneAndUpdate(
-    { username: uName },
-    { $push: { stable: newMount } },
-    ).exec((err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        User.findOne({ username: result.username }).exec((e, r) => {
-          if (e) {
-            console.log(err);
-          } else {
-            callback(r);
-          }
-        });
-      }
-    });
-};
 
 module.exports = {
   saveUsr,
   findUsr,
   getUsr,
   addMount,
+  deleteMount,
 };
