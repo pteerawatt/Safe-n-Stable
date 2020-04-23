@@ -1,6 +1,21 @@
 import React from 'react';
+import axios from 'axios';
 
-const CurrentMount = ({ mount }) => {
+const CurrentMount = ({ mount, user, updateUser }) => {
+  const handleClick = (event) => {
+    event.preventDefault();
+    if (mount._id !== 0) {
+      axios.delete('/api/users/mounts', {
+        params: {
+          _id: mount._id,
+          username: user,
+        },
+      }).then((user) => {
+        updateUser(user.data);
+      });
+    }
+  };
+
   if (mount === 'noMount') {
     const name = 'Add a Mount!';
     const picture = 'https://safe-n-stable.s3-us-west-1.amazonaws.com/1104261.svg';
@@ -24,6 +39,8 @@ const CurrentMount = ({ mount }) => {
         <div>
           {name}
         </div>
+        <button onClick={handleClick}>Delete</button>
+        <br></br>
         <img src={picture} alt="mount"></img>
         <div>
           {description}

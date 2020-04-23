@@ -11,7 +11,7 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 
 // get token
-app.post('/token', (req, res) => {
+app.post('/api/token', (req, res) => {
   const options = {
     method: 'POST',
     url: 'https://us.battle.net/oauth/token',
@@ -35,7 +35,7 @@ app.post('/token', (req, res) => {
 });
 
 // get an array of all mounts
-app.get('/mounts', (req, res) => {
+app.get('/api/mounts', (req, res) => {
   const { token } = req.query;
   const options = {
     url: 'https://us.api.blizzard.com/data/wow/mount/index?namespace=static-us&locale=en_US',
@@ -55,7 +55,7 @@ app.get('/mounts', (req, res) => {
 });
 
 // get info on a specific mount
-app.get('/mountinfo', (req, res) => {
+app.get('/api/mountinfo', (req, res) => {
   const { token, id } = req.query;
   const options = {
     url: `https://us.api.blizzard.com/data/wow/mount/${id}?namespace=static-us&locale=en_US`,
@@ -75,7 +75,7 @@ app.get('/mountinfo', (req, res) => {
 });
 
 // get picture of a creature
-app.get('/creature', (req, res) => {
+app.get('/api/creature', (req, res) => {
   const { token, id } = req.query;
   const options = {
     url: `https://us.api.blizzard.com/data/wow/media/creature-display/${id}?namespace=static-us&locale=en_US`,
@@ -95,8 +95,7 @@ app.get('/creature', (req, res) => {
 });
 
 // takes current username and mount name to add to DB
-app.get('/mounts/add', (req, res) => {
-  console.log(req.query);
+app.get('/api/users/mounts', (req, res) => {
   const Mount = {
     username: req.query.username,
     name: '',
@@ -170,18 +169,23 @@ app.get('/mounts/add', (req, res) => {
   });
 });
 
+// delete current display mount from user
+app.delete('/api/users/mounts', (req, res) => {
+  controller.delete_user_mount(req, res);
+});
+
 // create a user
-app.post('/users', (req, res) => {
+app.post('/api/users', (req, res) => {
   controller.post_user(req, res);
 });
 
 // login
-app.post('/users/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
   controller.post_login(req, res);
 });
 
 // get user
-app.get('/users', (req, res) => {
+app.get('/api/users', (req, res) => {
  controller.get_user(req, res);
 });
 

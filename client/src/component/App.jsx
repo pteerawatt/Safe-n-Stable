@@ -31,7 +31,7 @@ const App = () => {
 
 	// get mount by name and add to DB
 	const AddMountByName = (name) => {
-		axios.get('/mounts/add', {
+		axios.get('/api/users/mounts', {
 			params: {
 				username: currUser.username,
 				name,
@@ -60,7 +60,7 @@ const App = () => {
 	// if logged in, will display Stable page
 	return (
 		<div>
-			<Stable currUser={currUser} AddMountByName={AddMountByName} />
+			<Stable currUser={currUser} AddMountByName={AddMountByName} updateUser={updateUser} />
 		</div>
 	);
 };

@@ -3,7 +3,7 @@ import CurrentMount from './CurrentMount.jsx';
 import MountList from './MountList.jsx';
 import AddMount from './AddMount.jsx';
 
-const Stable = ({ currUser, AddMountByName }) => {
+const Stable = ({ currUser, AddMountByName, updateUser }) => {
   // select mount to be in main display
   const [display, setDisplay] = useState(0);
 
@@ -16,7 +16,7 @@ const Stable = ({ currUser, AddMountByName }) => {
         {`Welcome to your stable ${currUser.username}!`}
       </h1>
       <AddMount AddMountByName={AddMountByName} />
-      <CurrentMount mount={mainDisplay} />
+      <CurrentMount mount={mainDisplay} user={currUser.username} updateUser={updateUser} />
       {allMounts.map((mount) => {
         return <MountList mount={mount} key={mount._id} />;
       })}

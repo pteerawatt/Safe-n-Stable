@@ -1,6 +1,31 @@
 const bcrypt = require('bcryptjs');
 const model = require('./model.js');
 
+// add mount to a stable
+const add_mount = (Mount, res) => {
+  const {
+    username,
+    name,
+    description,
+    picture,
+  } = Mount;
+  model.add_mount(username, name, description, picture, (results) => {
+    res.send(results);
+  });
+};
+
+// delete a current mount from user
+const delete_user_mount = (req, res) => {
+  const { _id, username } = req.query;
+  model.delete_user_mount(_id, username, (error, updatedUserObj) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.send(updatedUserObj);
+    }
+  });
+};
+
 // create a user
 const post_user = async (req, res) => {
   const salt = await bcrypt.genSalt();
@@ -53,22 +78,11 @@ const get_user = (req, res) => {
   });
 };
 
-// add mount to a stable
-const add_mount = (Mount, res) => {
-  const {
-    username,
-    name,
-    description,
-    picture,
-  } = Mount;
-  model.add_mount(username, name, description, picture, (results) => {
-    res.send(results);
-  });
-};
 
 module.exports = {
   post_user,
   post_login,
   get_user,
   add_mount,
+  delete_user_mount,
 };
