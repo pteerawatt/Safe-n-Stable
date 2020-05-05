@@ -47,13 +47,15 @@ const App = () => {
 					<div>
 						<h1>Welcome to Safe-n-Stable</h1>
 						<br></br>
-						<h2>Login Here</h2>
-						<Login updateLogin={updateLogin} updateUser={updateUser} />
-						<br></br>
-						<br></br>
-						<br></br>
-						<h3>{'Don\'t have an account yet? Create one here!'}</h3>
-						<CreateAcc />
+						<div class="container">
+							<h2>Login Here</h2>
+							<Login updateLogin={updateLogin} updateUser={updateUser} />
+							<br></br>
+							<br></br>
+							<br></br>
+							<h3>{'Don\'t have an account yet? Create one here!'}</h3>
+							<CreateAcc />
+						</div>
 					</div>
 				);
 	}

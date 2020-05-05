@@ -21,7 +21,7 @@ const CurrentMount = ({ mount, user, updateUser }) => {
     const picture = 'https://safe-n-stable.s3-us-west-1.amazonaws.com/1104261.svg';
     const description = 'You\'re stable is empty';
     return (
-      <div>
+      <div id="main">
         <div>
           {name}
         </div>
@@ -42,7 +42,7 @@ const CurrentMount = ({ mount, user, updateUser }) => {
         <button onClick={handleClick}>Delete</button>
         <br></br>
         <img src={picture} alt="mount"></img>
-        <div>
+        <div id="desc">
           {description}
         </div>
       </div>

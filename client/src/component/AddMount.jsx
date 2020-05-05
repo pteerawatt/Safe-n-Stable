@@ -8,7 +8,7 @@ const AddMount = ({ AddMountByName }) => {
     AddMountByName(mountName);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="butto" onSubmit={handleSubmit}>
       <label htmlFor="mountName">Add to Stable: </label>
       <input placeholder="Mount name" type="text" id="mountName" name="mountName" value={mountName} required onChange={(event) => { setName(event.target.value); }}></input>
       <button>Add</button>

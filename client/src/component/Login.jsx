@@ -34,11 +34,15 @@ const Login = ({ updateLogin, updateUser }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input placeholder="username" type="text" id="username" name="username" value={username} required onChange={(event) => { setName(event.target.value); }}></input>
-      <label htmlFor="password">Password:</label>
-      <input placeholder="password" type="text" id="password" name="password" value={password} required onChange={(event) => { setPass(event.target.value); }}></input>
-      <button>Login</button>
+      <div class="form-group">
+        <label htmlFor="username"></label>
+        <input class="form-control" placeholder="Username" type="text" id="username" name="username" value={username} required onChange={(event) => { setName(event.target.value); }}></input>
+        <br></br>
+        <label htmlFor="password"></label>
+        <input class="form-control" placeholder="Password" type="text" id="password" name="password" value={password} required onChange={(event) => { setPass(event.target.value); }}></input>
+        <br></br>
+        <button class="btn btn-outline-dark btn1">Login</button>
+      </div>
     </form>
   );
 };

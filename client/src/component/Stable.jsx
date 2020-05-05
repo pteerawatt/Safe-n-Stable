@@ -15,11 +15,17 @@ const Stable = ({ currUser, AddMountByName, updateUser }) => {
       <h1>
         {`Welcome to your stable ${currUser.username}!`}
       </h1>
-      <AddMount AddMountByName={AddMountByName} />
-      <CurrentMount mount={mainDisplay} user={currUser.username} updateUser={updateUser} />
-      {allMounts.map((mount) => {
-        return <MountList mount={mount} key={mount._id} />;
-      })}
+      <div class="row">
+        <div class="col">
+          <AddMount AddMountByName={AddMountByName} />
+          <CurrentMount mount={mainDisplay} user={currUser.username} updateUser={updateUser} />
+        </div>
+        <div class="col">
+          {allMounts.map((mount) => {
+            return <MountList mount={mount} key={mount._id} />;
+        })}
+        </div>
+      </div>
     </div>
   );
 };
