@@ -36,13 +36,13 @@ const CurrentMount = ({ mount, user, updateUser }) => {
 
     return (
       <div>
-        <div>
+        <h2>
           {name}
-        </div>
-        <button onClick={handleClick}>Delete</button>
+        </h2>
+        <button className="btn btn-warning delete-btn" onClick={handleClick}>Delete</button>
         <br></br>
         <img src={picture} alt="mount"></img>
-        <div id="desc">
+        <div className="mount-des">
           {description}
         </div>
       </div>

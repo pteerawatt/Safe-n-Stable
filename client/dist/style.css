@@ -24,6 +24,10 @@ h1 {
   width: 200px;
 }
 
+.delete-btn {
+  margin-bottom: 10px;
+}
+
 /* housing maindisplay and gallery */
 .stable-container {
   min-width: 1500px;
@@ -38,9 +42,9 @@ h1 {
 
 .outerImgBox {
   max-width: 700px;
-  max-height: 700px;
+  max-height: 900px;
   min-width: 700px;
-  min-height: 700px;
+  min-height: 900px;
   display: flex;
   justify-content: space-around;
   widows: 50%;
@@ -72,6 +76,16 @@ h1 {
 /* pagination style */
 .imgPage {
   position: absolute;
-  bottom: 0;
+  bottom: 100px;
   align-self: center;
+}
+
+.add-mount-btn {
+  margin-left: 10px;
+}
+
+.mount-des {
+  background-color: #DCDCDC;
+  padding: 10px;
+  max-width: 600px;
 }
