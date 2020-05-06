@@ -24,66 +24,54 @@ h1 {
   width: 200px;
 }
 
-/* controll stable grid display */
-.grid-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 200px 500px 100px;
-  grid-template-areas: "main desc"
-                       "main caro"
-                       "butto caro";
-}
-
-.main {
-  grid-area: main;
-}
-
-#desc {
-  grid-area: desc;
-}
-
-#caro {
-  grid-area: caro;
-}
-
-#butto {
-  grid-area: butto;
-}
-
+/* housing maindisplay and gallery */
 .stable-container {
-  background-color: cadetblue;
-  display: flex;
   min-width: 1500px;
   overflow: scroll;
 }
 
 .main-display {
-  
+  padding-left: 50px;
+  width: 50%;
+  float: left;
 }
 
-.gallery {
+.outerImgBox {
   max-width: 700px;
   max-height: 700px;
   min-width: 700px;
   min-height: 700px;
-  background-color: red;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
-  float: left;
+  widows: 50%;
+  position: relative;
 }
 
-.ind-pic {
+.innerImgBox {
+  max-width: 800px;
+  min-width: 800px;
+}
+
+/* individual box housing img */
+.imgBox {
   flex: 0 0 32%;
   max-width: 200px;
   max-height: 200px;
-  background-color: blue;
+  padding: 0;
 }
 
+/* individual mount image */
 .mount-img {
   height: 100%;
   display: block;
   margin: 0px;
   padding: 0px 0px 0px 0px;
   max-width: 100%;
+}
+
+/* pagination style */
+.imgPage {
+  position: absolute;
+  bottom: 0;
+  align-self: center;
 }

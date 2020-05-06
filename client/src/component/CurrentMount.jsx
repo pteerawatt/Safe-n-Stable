@@ -10,8 +10,8 @@ const CurrentMount = ({ mount, user, updateUser }) => {
           _id: mount._id,
           username: user,
         },
-      }).then((user) => {
-        updateUser(user.data);
+      }).then((ruser) => {
+        updateUser(ruser.data);
       });
     }
   };
@@ -47,7 +47,6 @@ const CurrentMount = ({ mount, user, updateUser }) => {
         </div>
       </div>
     );
-
 };
 
 export default CurrentMount;

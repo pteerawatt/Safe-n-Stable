@@ -41,8 +41,8 @@ const Stable = ({ currUser, AddMountByName, updateUser }) => {
             <AddMount AddMountByName={AddMountByName} />
             <CurrentMount mount={mainDisplay} user={currUser.username} updateUser={updateUser} />
           </div>
-          <div className="list-group mb-4 gallery">
-            <div className="container">
+          <div className="list-group mb-4 outerImgBox">
+            <div className="container innerImgBox">
               <ul className="row">
                 {currentPosts.map((mount) => {
                   return <MountList mount={mount} key={mount._id} />;
