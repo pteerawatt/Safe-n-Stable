@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagination = ({ postPerPage, totalPosts }) => {
+const Pagination = ({ postPerPage, totalPosts, changePage }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
@@ -10,6 +10,7 @@ const Pagination = ({ postPerPage, totalPosts }) => {
   const handleClick = (event) => {
     event.preventDefault();
     console.log(event.target.innerText);
+    changePage(event.target.innerText);
   };
 
   return (
