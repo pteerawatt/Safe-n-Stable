@@ -39,5 +39,6 @@ module.exports = {
     "no-useless-return": 0,
     "consistent-return": 0,
     "no-underscore-dangle": 0,
+    "no-plusplus": 0,
   },
 };

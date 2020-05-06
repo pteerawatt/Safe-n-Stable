@@ -49,3 +49,39 @@ h1 {
 #butto {
   grid-area: butto;
 }
+
+.stable-container {
+  background-color: cadetblue;
+  display: flex;
+  min-width: 1500px;
+  overflow: scroll;
+}
+
+.main-display {
+  
+}
+
+.gallery {
+  max-width: 700px;
+  max-height: 700px;
+  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  float: left;
+}
+
+.ind-pic {
+  flex: 0 0 32%;
+  max-width: 200px;
+  max-height: 200px;
+  background-color: blue;
+}
+
+.mount-img {
+  height: 100%;
+  display: block;
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  max-width: 100%;
+}

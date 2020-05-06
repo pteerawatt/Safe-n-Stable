@@ -47,7 +47,7 @@ const App = () => {
 					<div>
 						<h1>Welcome to Safe-n-Stable</h1>
 						<br></br>
-						<div class="container">
+						<div className="container">
 							<h2>Login Here</h2>
 							<Login updateLogin={updateLogin} updateUser={updateUser} />
 							<br></br>
