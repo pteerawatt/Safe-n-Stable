@@ -9,7 +9,6 @@ const Pagination = ({ postPerPage, totalPosts, changePage }) => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(event.target.innerText);
     changePage(event.target.innerText);
   };
 

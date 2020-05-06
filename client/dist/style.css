@@ -64,6 +64,8 @@ h1 {
 .gallery {
   max-width: 700px;
   max-height: 700px;
+  min-width: 700px;
+  min-height: 700px;
   background-color: red;
   display: flex;
   flex-wrap: wrap;
