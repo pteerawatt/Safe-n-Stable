@@ -8,10 +8,11 @@ const AddMount = ({ AddMountByName }) => {
     AddMountByName(mountName);
   };
   return (
-    <form id="butto" onSubmit={handleSubmit}>
-      <label htmlFor="mountName">Add to Stable: </label>
-      <input placeholder="Mount name" type="text" id="mountName" name="mountName" value={mountName} required onChange={(event) => { setName(event.target.value); }}></input>
-      <button>Add</button>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <input className="form-control" placeholder="Add mount to Stable" type="text" id="mountName" name="mountName" value={mountName} required onChange={(event) => { setName(event.target.value); }}></input>
+        <button class="btn btn-dark add-mount-btn">Add</button>
+      </div>
     </form>
   );
 };

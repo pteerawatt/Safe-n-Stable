@@ -10,8 +10,8 @@ const CurrentMount = ({ mount, user, updateUser }) => {
           _id: mount._id,
           username: user,
         },
-      }).then((user) => {
-        updateUser(user.data);
+      }).then((ruser) => {
+        updateUser(ruser.data);
       });
     }
   };
@@ -36,18 +36,17 @@ const CurrentMount = ({ mount, user, updateUser }) => {
 
     return (
       <div>
-        <div>
+        <h2>
           {name}
-        </div>
-        <button onClick={handleClick}>Delete</button>
+        </h2>
+        <button className="btn btn-warning delete-btn" onClick={handleClick}>Delete</button>
         <br></br>
         <img src={picture} alt="mount"></img>
-        <div id="desc">
+        <div className="mount-des">
           {description}
         </div>
       </div>
     );
-
 };
 
 export default CurrentMount;
