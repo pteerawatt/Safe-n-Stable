@@ -1,8 +1,8 @@
 # Safe-n-Stable
-A login app to keep track of your WoW mounts!
+Keeping track of your World of Warcraft mounts!
 
 ## What is ?Safe-n-Stable? ##
-This application is for World of Warcraft players who want to keep track of their mount collection. Users can search for WoW in-game mount and directly add them to their collection! Data on mounts are from official Blizzard API.
+This application is for World of Warcraft players who want to keep track of their mount collection. Users can make a Safe-n-Stable account, search for WoW in-game mount and directly add them to their collection! Data on mounts are from official Blizzard API.
 
 ## Quote from You ##
 "Keep you're mount safe and stabled"
@@ -15,7 +15,7 @@ Make an account, login, and collect away!
 - MongoDB
 
 ## Instillation ##
-1) Start MongoDB
+1) Start up MongoDB
 2) From within the root directory:
 
 ```sh
@@ -27,4 +27,5 @@ start nodemon
 ```sh
 npm run start
 ```
+
 Application default port is 1500
