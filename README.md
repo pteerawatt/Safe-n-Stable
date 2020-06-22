@@ -27,3 +27,4 @@ start nodemon
 ```sh
 npm run start
 ```
+Application default port is 1500
