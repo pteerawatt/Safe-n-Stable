@@ -7,7 +7,7 @@ import Carousel from './Carousel.jsx';
 
 const Stable = ({ currUser, AddMountByName, updateUser }) => {
   // select mount to be in main display
-  const [display] = useState(0);
+  const [display, setDisplay] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -23,6 +23,11 @@ const Stable = ({ currUser, AddMountByName, updateUser }) => {
   // change page number on click
   const changePage = (page) => {
     setCurrentPage(page);
+  };
+
+  // change the mount in main display
+  const changeMainDisplay = (index) => {
+    setDisplay(index);
   };
 
   // renders carousel when window size is less than 1000px
@@ -44,8 +49,8 @@ const Stable = ({ currUser, AddMountByName, updateUser }) => {
           <div className="list-group mb-4 outerImgBox">
             <div className="container innerImgBox">
               <ul className="row">
-                {currentPosts.map((mount) => {
-                  return <MountList mount={mount} key={mount._id} />;
+                {currentPosts.map((mount, index) => {
+                  return <MountList mount={mount} key={mount._id} index={index} changeMainDisplay={changeMainDisplay} />;
                 })}
               </ul>
             </div>
