@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ArrayOfMounts = ({ mount, index, changeMainDisplay }) => {
-  const { name, description, picture } = mount;
+const ArrayOfMounts = ({ mount, changeMainDisplay }) => {
+  const { _id, name, description, picture } = mount;
 
   // click to add item to main display
   const handleClick = (event) => {
     event.preventDefault();
-    changeMainDisplay(index);
+    changeMainDisplay(_id);
   };
 
   return (

@@ -26,8 +26,13 @@ const Stable = ({ currUser, AddMountByName, updateUser }) => {
   };
 
   // change the mount in main display
-  const changeMainDisplay = (index) => {
-    setDisplay(index);
+  const changeMainDisplay = (id) => {
+    // search for mount using _id
+    for (let m = 0; m < allMounts.length; m++) {
+      if (allMounts[m]._id === id) {
+        setDisplay(m);
+      }
+    }
   };
 
   // renders carousel when window size is less than 1000px
@@ -49,8 +54,8 @@ const Stable = ({ currUser, AddMountByName, updateUser }) => {
           <div className="list-group mb-4 outerImgBox">
             <div className="container innerImgBox">
               <ul className="row">
-                {currentPosts.map((mount, index) => {
-                  return <MountList mount={mount} key={mount._id} index={index} changeMainDisplay={changeMainDisplay} />;
+                {currentPosts.map((mount) => {
+                  return <MountList mount={mount} key={mount._id} changeMainDisplay={changeMainDisplay} />;
                 })}
               </ul>
             </div>
