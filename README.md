@@ -1,7 +1,7 @@
 # Safe-n-Stable
 Keeping track of your World of Warcraft mounts!
 
-## What is ?Safe-n-Stable? ##
+## What is Safe-n-Stable? ##
 This application is for World of Warcraft players who want to keep track of their mount collection. Users can make a Safe-n-Stable account, search for WoW in-game mount and directly add them to their collection! Data on mounts are from official Blizzard API.
 
 ## Quote from You ##
