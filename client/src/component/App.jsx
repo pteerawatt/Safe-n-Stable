@@ -5,7 +5,6 @@ import CreateAcc from './CreateAcc.jsx';
 import Stable from './Stable.jsx';
 
 const App = () => {
-	const [token, setToken] = useState('');
 	const [login, setLogin] = useState(false);
 	const [currUser, setUser] = useState({
 		username: '',
