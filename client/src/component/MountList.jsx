@@ -11,7 +11,7 @@ const ArrayOfMounts = ({ mount, changeMainDisplay }) => {
 
   return (
     <div className="list-group-item imgBox col-sm">
-      <img className="mount-img" src={picture || ''} alt="mount" onClick={handleClick}></img>
+      <img className="mount-img" src={picture || ''} alt="mount" onClick={handleClick} data-toggle="tooltip" data-placement="bottom" title={name}></img>
     </div>
   );
 };
