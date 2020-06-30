@@ -29,7 +29,11 @@
     <script type="text/javascript">
         // activate tooltip on hover over mount image
         $(document).ready(function() {
-            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+            $("body").tooltip({ 
+                                selector: '[data-toggle=tooltip]',
+                                animation: true,
+                                delay: 500,
+                             });
         });
     </script>
 </body>
