@@ -19,13 +19,27 @@ const AddMount = ({ AddMountByName }) => {
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Need help?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                ...
+                <div>
+                Simply type the name of the mount (case sensitive) you want to add and click add!
+                </div>
+                <br></br>
+                <div>
+                  A list of mount names can be found&nbsp;
+                  <span></span>
+                  <a href="https://www.warcraftmounts.com/gallery.php" rel="noopener noreferrer" target="_blank">
+                    here
+                  </a>
+                </div>
+                <br></br>
+                <div>
+                  Here are some cool mounts you can start with: Brown Horse, Glacial Tidestorm, Priestess' Moonsaber.
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
