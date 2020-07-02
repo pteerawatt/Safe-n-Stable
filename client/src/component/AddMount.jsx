@@ -45,11 +45,11 @@ const AddMount = ({ AddMountByName }) => {
                 <br></br>
                 <div>
                   Here are some cool mounts you can start with:&nbsp;
-                  <a href="#" onClick={addName}>Brown Horse</a>
+                  <a href="#" onClick={addName} data-dismiss="modal">Brown Horse</a>
                   ,&nbsp;
-                  <a href="#" onClick={addName}>Glacial Tidestorm</a>
+                  <a href="#" onClick={addName} data-dismiss="modal">Glacial Tidestorm</a>
                   ,&nbsp;
-                  <a href="#" onClick={addName}>Priestess' Moonsaber</a>
+                  <a href="#" onClick={addName} data-dismiss="modal">Priestess' Moonsaber</a>
                   .
                 </div>
               </div>
