@@ -41,6 +41,7 @@ const AddMount = ({ AddMountByName }) => {
                   <a href="https://www.warcraftmounts.com/gallery.php" rel="noopener noreferrer" target="_blank">
                     here
                   </a>
+                  .
                 </div>
                 <br></br>
                 <div>
