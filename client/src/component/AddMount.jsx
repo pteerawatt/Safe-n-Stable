@@ -10,7 +10,7 @@ const AddMount = ({ AddMountByName }) => {
 
   const addName = (e) => {
     e.preventDefault();
-    console.log('hello');
+    setName(e.target.innerHTML);
   };
 
   return (
