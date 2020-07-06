@@ -5,7 +5,12 @@ import AddMount from './AddMount.jsx';
 import Pagination from './Pagination.jsx';
 import Carousel from './Carousel.jsx';
 
-const Stable = ({ currUser, AddMountByName, updateUser }) => {
+const Stable = ({
+                  currUser,
+                  AddMountByName,
+                  updateUser,
+                  logOut
+                }) => {
   // select mount to be in main display
   const [display, setDisplay] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);

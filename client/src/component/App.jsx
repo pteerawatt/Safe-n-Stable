@@ -23,6 +23,11 @@ const App = () => {
 		setLogin(true);
 	};
 
+	// logs user out
+	const logOut = () => {
+		setLogin(true);
+	};
+
 	// update the current user on successful login
 	const updateUser = (usr) => {
 		setUser(usr);
@@ -61,7 +66,7 @@ const App = () => {
 	// if logged in, will display Stable page
 	return (
 		<div>
-			<Stable currUser={currUser} AddMountByName={AddMountByName} updateUser={updateUser} />
+			<Stable currUser={currUser} AddMountByName={AddMountByName} updateUser={updateUser} logOut={logOut} />
 		</div>
 	);
 };
