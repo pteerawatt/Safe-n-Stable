@@ -25,7 +25,7 @@ const App = () => {
 
 	// logs user out
 	const logOut = () => {
-		setLogin(true);
+		setLogin(false);
 	};
 
 	// update the current user on successful login

@@ -9,7 +9,7 @@ const Stable = ({
                   currUser,
                   AddMountByName,
                   updateUser,
-                  logOut
+                  logOut,
                 }) => {
   // select mount to be in main display
   const [display, setDisplay] = useState(0);
@@ -50,6 +50,7 @@ const Stable = ({
       <div>
         <h1>
           {`Welcome to your stable ${currUser.username}!`}
+          <button type="button" className="btn btn-light logout" onClick={logOut}>Log out</button>
         </h1>
         <div className="stable-container">
           <div className="main-display">
