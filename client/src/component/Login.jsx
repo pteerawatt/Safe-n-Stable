@@ -39,7 +39,7 @@ const Login = ({ updateLogin, updateUser }) => {
         <input className="form-control" placeholder="Username" type="text" id="username" name="username" value={username} required onChange={(event) => { setName(event.target.value); }}></input>
         <br></br>
         <label htmlFor="password"></label>
-        <input className="form-control" placeholder="Password" type="text" id="password" name="password" value={password} required onChange={(event) => { setPass(event.target.value); }}></input>
+        <input className="form-control" placeholder="Password" type="password" id="password" name="password" value={password} required onChange={(event) => { setPass(event.target.value); }}></input>
         <br></br>
         <button className="btn btn-outline-dark btn1">Login</button>
       </div>
