@@ -23,6 +23,11 @@ const App = () => {
 		setLogin(true);
 	};
 
+	// logs user out
+	const logOut = () => {
+		setLogin(false);
+	};
+
 	// update the current user on successful login
 	const updateUser = (usr) => {
 		setUser(usr);
@@ -43,25 +48,34 @@ const App = () => {
 	// if not logged in, wil display login page
 	if (!login) {
 		return (
-					<div>
-						<h1>Welcome to Safe-n-Stable</h1>
-						<br></br>
-						<div className="container">
+			<div>
+				<h1>Welcome to Safe-n-Stable</h1>
+				<br></br>
+				<div className="container">
+					<div className="login-container">
+						<div>
 							<h2>Login Here</h2>
 							<Login updateLogin={updateLogin} updateUser={updateUser} />
-							<br></br>
-							<br></br>
-							<br></br>
-							<h3>{'Don\'t have an account yet? Create one here!'}</h3>
-							<CreateAcc />
+						</div>
+						<div className="demo-msg">
+							<div><strong>Demo account</strong></div>
+							<div>Username: demo</div>
+							<div>Password: 123</div>
 						</div>
 					</div>
-				);
+					<br></br>
+					<br></br>
+					<br></br>
+					<h3>{'Don\'t have an account yet? Create one here!'}</h3>
+					<CreateAcc />
+				</div>
+			</div>
+		);
 	}
 	// if logged in, will display Stable page
 	return (
 		<div>
-			<Stable currUser={currUser} AddMountByName={AddMountByName} updateUser={updateUser} />
+			<Stable currUser={currUser} AddMountByName={AddMountByName} updateUser={updateUser} logOut={logOut} />
 		</div>
 	);
 };
