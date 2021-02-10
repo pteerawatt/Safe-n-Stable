@@ -5,6 +5,20 @@ h1 {
   color: white;
 }
 
+.login-container {
+  display: flex;
+}
+.demo-msg {
+  box-sizing: border-box;
+  padding: 25px;
+  margin: 30px;
+  background-color: lightgrey;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-radius: 5px;
+}
+
 /* control the login/signup container */
 .container {
   float: left;
